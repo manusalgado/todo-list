@@ -6,6 +6,7 @@ import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import rootReducers from './reducers';
 import App from './components/App';
+import './sass/main.scss';
 
 
 const store = createStore(

@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const distPath = path.join(__dirname, 'dist');
 
 module.exports = {
@@ -54,13 +53,6 @@ module.exports = {
         css: 'style.css'
       }
     }),
-    new CleanWebpackPlugin([distPath]),
-    new CopyWebpackPlugin([{
-        from: './data',
-        to: distPath
-      },{
-        from: './src/assets',
-        to: distPath
-    }])
+    new CleanWebpackPlugin([distPath])
   ]
 };
