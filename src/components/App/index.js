@@ -5,7 +5,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Footer from '../Footer';
 import Header from '../Header';
 import Todo from '../Todo';
-import LogIn from '../LogIn';
+import VisibleLogIn from '../../containers/VisibleLogIn';
+import VisibleTodo from '../../containers/VisibleTodo';
 
 const App = () => (
   <div>
@@ -13,8 +14,8 @@ const App = () => (
       <Fragment>
         <Header />
         <Switch>
-          <Route component={LogIn} path="/" exact />
-          <Route component={Todo} path="/todo" />
+          <Route component={VisibleLogIn} path="/" exact />
+          <Route component={VisibleTodo} path="/todos" />
         </Switch>
       </Fragment>
     </BrowserRouter>

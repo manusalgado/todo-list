@@ -10,42 +10,40 @@ import WrapperItem from './WrapperItem';
 class Todo extends React.Component {
 
   state = {
-    todos:[],
     currentTodo: ''
   }
 
+  componentDidMount(){
+    const { didMount, authorize } = this.props;
+    didMount(authorize);
+  }
+
   addTodo = () => {
-    let c = this.state.todos.slice()
-    c.push(this.state.currentTodo)
-    this.setState({
-      todos: c, 
-      currentTodo: ''
-    })
+    const { addTodoHandler } = this.props;
+    if (this.state.currentTodo.trim() !== ''){
+      addTodoHandler(this.state.currentTodo);
+      this.setState({
+        currentTodo: ''
+      })
+    }
   }
 
   deleteTodo = (i) => {
-    let d = this.state.todos.slice();
-    d.splice( i, 1 );
+    const { deleteTodoHandler } = this.props;
+    deleteTodoHandler(i);
     this.setState({
-      todos: d,
       currentTodo: '' 
     })
   }
 
-  handleChange = e => {
-    this.setState({
-      currentTodo: e.target.value
-    })
+  handleChange = e => { 
+      this.setState({
+        currentTodo: e.target.value
+      })
   }
 
   render(){
-
-    let b = this.state.todos.map((element, i) => {
-      return(
-        <li key={i}>{element}<button onClick={() => {this.deleteTodo(i)}}>Delete</button></li>
-      )
-    })
-
+    const { todos, loading } = this.props;
     return(
       <WrapperTodo>
         <div>
@@ -53,7 +51,12 @@ class Todo extends React.Component {
           <Button onClick={this.addTodo}>Add todo</Button>
         </div>
         <div>
-          { this.state.todos.length === 0 ? <p>Not todos yet</p> : <WrapperItem>{b}</WrapperItem> }
+          { loading && <h5>Loading...</h5>}
+          { todos.length === 0 ?
+            <p>Not todos yet</p> :
+            <WrapperItem>{todos.map((element, i) => (
+              <li key={i}>{element}<button onClick={() => {this.deleteTodo(i)}}>Delete</button></li>
+            ))}</WrapperItem> }
         </div>
       </WrapperTodo>
     )  

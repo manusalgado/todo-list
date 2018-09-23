@@ -31,6 +31,7 @@ export default styled.ul`
         color: #fff;
         font-size:1rem;
         text-align:right;
+        outline:none;
         cursor: pointer;
       }
     }

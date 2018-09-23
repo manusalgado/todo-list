@@ -9,11 +9,17 @@ export default styled.div`
     }
   form {
     display:grid;
+    label {
+      text-align: left;
+      font-size: 1rem;
+      color: #001f3f;
+    }
     input {
       font-size: 1rem;
       height: 35px;
       margin: 15px 0;
       border: none;
+      outline: none;
       box-shadow: 0px 2px 0px 0px gray;
       &:focus {
         box-shadow: 0px 2px 0px 0px #001f3f;
@@ -33,6 +39,10 @@ export default styled.div`
       transition: 300ms;
       &:hover {
         background-color:#4e6e8f;
+      }
+      &:disabled {
+      background-color: gray;
+      cursor: initial;
       }
     }
   }
