@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+//Components
 import Footer from '../Footer';
 import Header from '../Header';
 import Todo from '../Todo';
-
-const LogIn = () => <h1>Log In / Sing Up</h1>;
+import LogIn from '../LogIn';
 
 const App = () => (
   <div>

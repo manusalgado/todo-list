@@ -8,6 +8,7 @@ export default styled.div`
     margin-top: 20px;
     border-radius:5px;
     color: #fff;
+    margin: 0 auto 150px auto;
     @media (max-width: 414px) {
         max-width: 95%;
     }
