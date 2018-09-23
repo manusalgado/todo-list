@@ -1,6 +1,11 @@
 import React, { Components } from 'react';
+
+//Style
 import WrapperTodo from './WrapperTodo';
-import WrapperSearch from './WrapperSearch';
+import Search from './Search';
+import Button from './Button';
+import WrapperItem from './WrapperItem';
+
 
 class Todo extends React.Component {
 
@@ -37,18 +42,18 @@ class Todo extends React.Component {
 
     let b = this.state.todos.map((element, i) => {
       return(
-        <li key={i}>{element}<button onClick={() => {this.deleteTodo(i)}}>X</button></li>
+        <li key={i}>{element}<button onClick={() => {this.deleteTodo(i)}}>Delete</button></li>
       )
     })
 
     return(
       <WrapperTodo>
-        <WrapperSearch>
-          <input type="text" placeholder="Enter todo..." value={this.state.currentTodo} onChange={this.handleChange} />
-          <button onClick={this.addTodo}>Add todo</button>
-        </WrapperSearch>
         <div>
-          { this.state.todos.length === 0 ? <p>Not todos yet</p> : <ul>{b}</ul> }
+          <Search type="text" placeholder="Enter todo..." value={this.state.currentTodo} onChange={this.handleChange} />
+          <Button onClick={this.addTodo}>Add todo</Button>
+        </div>
+        <div>
+          { this.state.todos.length === 0 ? <p>Not todos yet</p> : <WrapperItem>{b}</WrapperItem> }
         </div>
       </WrapperTodo>
     )  
