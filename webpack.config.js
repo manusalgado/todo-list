@@ -19,6 +19,11 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader','eslint-loader']
+      },
+      {
         test: /\.(s?css|sass)$/,
         use: [
           'style-loader',

@@ -8,7 +8,6 @@ import rootReducers from './reducers';
 import App from './components/App';
 import styled, { injectGlobal } from 'styled-components';
 
-
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Roboto');
 
