@@ -1,5 +1,34 @@
 {
-  "rules": {
+  "extends": [
+    "standard",
+    "standard-react",
+    "standard-flow",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react",
+    "eslint:recommended"
+  ],
+  "env": {
+    "es6": true,
+    "node": true
   },
-  "parser": "babel-eslint"
+  "plugins": [
+    "flowtype",
+    "react",
+    "prettier",
+    "standard"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "no-var": "error",
+    "prefer-arrow-callback": "error",
+    "semi": [2, "never"],
+    "object-curly-spacing": [2, "always"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
 }
