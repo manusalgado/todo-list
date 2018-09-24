@@ -9,7 +9,7 @@ export default styled.div`
     border-radius:5px;
     color: #fff;
     margin: 0 auto 150px auto;
-    @media (max-width: 414px) {
+    @media (max-width: 600px) {
         max-width: 95%;
     }
 `;
